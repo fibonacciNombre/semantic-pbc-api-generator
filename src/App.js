@@ -1,10 +1,32 @@
 import logo from './logo.svg';
 
 import React, { useState } from "react";
+import { useMsal, useIsAuthenticated } from "@azure/msal-react";
 import "./App.css";
 import businessData from "./data/businessData"; 
 
 const App = () => {
+
+  const { instance } = useMsal();
+  const isAuthenticated = useIsAuthenticated();
+
+  const handleLogin = () => {
+    instance
+      .loginPopup({
+        scopes: ["User.Read"], // Permisos configurados en Azure AD
+      })
+      .then((response) => {
+        console.log("Logged in:", response);
+      })
+      .catch((error) => {
+        console.error("Login failed:", error);
+      });
+  };
+
+  const handleLogout = () => {
+    instance.logoutPopup();
+  };
+
   const [data] = useState(businessData);
 
   const [selectedBusinessArea, setSelectedBusinessArea] = useState("");
@@ -150,6 +172,20 @@ const App = () => {
   return (
     <div className="container">
       <h1 className="title">Semantic PBCs - APIs - Generator</h1>
+      <div className="auth-section">
+        {!isAuthenticated ? (
+          <button className="auth-button" onClick={handleLogin}>
+            Login
+          </button>
+        ) : (
+          <div>
+            <button className="logout-button" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        )}
+      </div>
+      {isAuthenticated && (
       <div className="layout">
       <div className="form-container">
       <div className="form-group">
@@ -342,6 +378,7 @@ const App = () => {
       )}
 
     </div>
+      )}
     </div>
   );
 };

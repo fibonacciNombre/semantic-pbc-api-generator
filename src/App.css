@@ -44,6 +44,26 @@ body {
   background-color: #f4f4f9;
 }
 
+.auth-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.auth-button {
+  background-color: #0078d4;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.auth-button:hover {
+  background-color: #005a9e;
+}
+
 .container {
   max-width: 800px;
   margin: 50px auto;
@@ -166,4 +186,21 @@ body {
 .generated-data-container ul li strong {
   font-weight: bold;
   color: #555555;
+}
+
+.logout-button {
+  position: absolute; /* Posiciona el botón relativo al contenedor */
+  bottom: 20px; /* Espaciado desde el borde inferior */
+  right: 20px; /* Espaciado desde el borde derecho */
+  background-color: #dc3545; /* Color rojo para Logout */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c82333; /* Un tono más oscuro para hover */
 }
