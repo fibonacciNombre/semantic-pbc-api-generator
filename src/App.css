@@ -1,83 +1,26 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* Estilos generales inspirados en ChatGPT */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
-}
-
-.auth-section {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.auth-button {
-  background-color: #0078d4;
-  color: white;
-  font-size: 16px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.auth-button:hover {
-  background-color: #005a9e;
+  background-color: #202123;
+  color: #d1d5db;
 }
 
 .container {
   max-width: 800px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  background-color: #2d2f32;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
 }
 
 .title {
   font-size: 24px;
   text-align: center;
   margin-bottom: 20px;
-  color: #333333;
+  color: #ffffff;
 }
 
 .form-group {
@@ -90,64 +33,57 @@ body {
 .form-group label {
   flex: 1;
   font-weight: bold;
-  margin: 0; /* Asegura que no haya margen adicional */
-  color: #555555;
-  text-align: right; /* Alinea el texto de las etiquetas a la derecha */
+  color: #a1a1aa;
+  text-align: right;
 }
 
 .form-control {
   flex: 2;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
+  border: 1px solid #3a3b3c;
+  border-radius: 8px;
+  background-color: #3a3b3c;
+  color: #ffffff;
 }
 
 .form-control:disabled {
-  background-color: #f9f9f9;
-  color: #aaaaaa;
+  background-color: #2d2f32;
+  color: #888;
+}
+
+/* Botones con el diseño de ChatGPT */
+.generate-button, .download-button {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+  text-align: center;
 }
 
 .generate-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  background-color: #007bff;
+  background-color: #10a37f;
   color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
 .generate-button:hover {
-  background-color: #0056b3;
+  background-color: #0e8b6b;
 }
 
 .download-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  margin-top: 10px;
-  background-color: #28a745;
+  background-color: #7b61ff;
   color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  margin-top: 10px;
 }
 
 .download-button:hover {
-  background-color: #218838;
+  background-color: #6348e0;
 }
 
-.generate-button,
-.download-button {
-  margin-top: 20px;
-  width: auto; /* Ajusta el ancho para que no ocupe el 100% */
-}
-
-/* Estilo para dividir en dos columnas */
+/* Layout general */
 .layout {
   display: flex;
   flex-direction: row;
@@ -160,17 +96,16 @@ body {
 
 .generated-data-container {
   flex: 1;
-  background-color: #f9f9f9;
+  background-color: #2d2f32;
   padding: 20px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .generated-data-container h2 {
   font-size: 20px;
   margin-bottom: 15px;
-  color: #333333;
+  color: #ffffff;
 }
 
 .generated-data-container ul {
@@ -181,26 +116,26 @@ body {
 
 .generated-data-container ul li {
   margin-bottom: 10px;
+  color: #d1d5db;
 }
 
 .generated-data-container ul li strong {
   font-weight: bold;
-  color: #555555;
+  color: #10a37f;
 }
 
-.logout-button {
-  position: absolute; /* Posiciona el botón relativo al contenedor */
-  bottom: 20px; /* Espaciado desde el borde inferior */
-  right: 20px; /* Espaciado desde el borde derecho */
-  background-color: #dc3545; /* Color rojo para Logout */
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+/* Responsividad */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
 
-.logout-button:hover {
-  background-color: #c82333; /* Un tono más oscuro para hover */
+  .form-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-group label {
+    text-align: left;
+  }
 }
